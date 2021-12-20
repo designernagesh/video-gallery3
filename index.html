@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Video Gallery</div>
+        <div class="video-container">
+            <div class="video">
+                <video src="videos/video1.mp4" muted></video>
+            </div>
+            <div class="video">
+                <video src="videos/video2.mp4" muted></video>
+            </div>
+            <div class="video">
+                <video src="videos/video3.mp4" muted></video>
+            </div>
+            <div class="video">
+                <video src="videos/video4.mp4" muted></video>
+            </div>
+            <div class="video">
+                <video src="videos/video5.mp4" muted></video>
+            </div>
+            <div class="video">
+                <video src="videos/video6.mp4" muted></video>
+            </div>
+        </div>
+
+        <div class="popUp">
+            <span>&times;</span>
+            <video src="videos/video1.mp4"></video>
+        </div>
+    </div>
+    <script>
+        let popUp = document.querySelector('.popUp');
+        let popupVideo = document.querySelector('.popUp video');
+        let vid = document.querySelectorAll('.video-container video');
+        vid.forEach(v => {
+            v.addEventListener('click', () => {
+                popUp.style.display = 'block';
+                popupVideo.src = v.getAttribute('src');
+                popupVideo.controls = true;
+                popupVideo.autoplay = true;
+            })
+        })
+        let btnClose = document.querySelector('.popUp span');
+        btnClose.addEventListener('click', () => {
+            popUp.style.display = 'none';
+        })
+    </script>
+</body>
+</html>
